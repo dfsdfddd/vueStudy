@@ -1,0 +1,6 @@
+config/*
+!config/default.*
+node_modules
+.idea
+
+
