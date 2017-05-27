@@ -1,0 +1,8 @@
+# vueStudy
+
+1 vue 5个 对象
+2 this对象是干嘛的
+3 this.$http.get('data/cartJson.json').then(function(){}) 获取 productList
+4 渲染 productList   (for in)
+5 filter
+6 mounted //干什么用处
