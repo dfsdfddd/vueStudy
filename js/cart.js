@@ -32,7 +32,7 @@ window.vm = new Vue({
 					this.productList = res.result.list;
 					this.calcTotalMoney();
 				}
-			});
+			})
 		},
 		selectAll: function (isCheck) {
 			this.checkAll=isCheck;
@@ -74,6 +74,7 @@ window.vm = new Vue({
 			let totalMoney = 0;
 			this.productList.forEach(function (item) {
 				if(item.checked){
+					totalMoney = totalMoney + item.productPrice*item.productQuentity
 					totalMoney+=item.productPrice*item.productQuentity;
 				}
 			});

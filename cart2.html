@@ -19,31 +19,31 @@
             <li class="class-head-li5">编辑</li>
         </ul>
         <ul class="info">
-            <li class="info-li1 clearfix">
+            <li class="info-li1 clearfix" v-for="product in productList">
                 <div class="row1">
-                    <a  class="check">check</a>
-                    <div class="imgs">
-                        <img>
+                    <a  class="check" v-bind:class="{'checked':product.checked}" v-on:click="selectedProduct(product)">check</a>
+                    <div  class="imgs">
+                        <img v-bind:src="product.productImage">
                     </div>
                     <ul class="theli">
-                        <li>title</li>
+                        <li v-test="product.productName"></li>
                         <li> </li>
                         <li> </li>
-                        <li>赠送:   <span>打火机</span></li>
+                        <li v-for="item in product.parts">赠送:   <span v-text="item.partsName"></span></li>
                     </ul>
                 </div>
                 <div class="row2">
-                    <div class="thisMoney">12</div>
+                    <div class="thisMoney">{{ product.productPrice }}</div>
                 </div>
                 <div class="row3">
                     <div class="cartCount clearfix">
-                        <a href="javascript:;" class="reduce">-</a>
-                        <input type="text" disabled="disabled" value="23">
-                        <a href="javascript:;" class="plus">+</a>
+                        <a href="javascript:;" class="reduce" @click="changeMoney(product,-1)">-</a>
+                        <input type="text"  v-model="product.productQuentity" disabled>
+                        <a href="javascript:;" class="plus" @click="changeMoney(product,1)">+</a>
                     </div>
                 </div>
                 <div class="row4">
-                    <div class="totalMoney">234</div>
+                    <div class="totalMoney">{{product.productPrice || formatMoney(product.productQuentity)}}</div>
                 </div>
                 <div class="row5">
                     <div class="ediet">删除</div>
@@ -52,9 +52,10 @@
         </ul>
         <ul class="bottom clearfix">
             <li class="bottom-row-left">
-                <a class="check">check</a>
+
+                <a class="check" :class="{'checked':checkAll}" @click="selectAll(true)">check</a>
                 <span class="choice-all">全选</span>
-                <span class="cansl-choice">取消全选</span>
+                <span class="cansl-choice" @click="selectAll(false)">取消全选</span>
             </li>
             <li class="bottom-row-right">
                 <dl>
@@ -67,5 +68,8 @@
         </ul>
     </div>
 </div>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script src="node_modules/vue-resource/dist/vue-resource.min.js"></script>
+<script src="js/cart2.js"></script>
 </body>
 </html>
