@@ -13,7 +13,7 @@ window.vm = new Vue({
 	},
 	mounted: function () {
 		var _this = this;
-		//this.cartView();
+		this.cartView();
 	},
 	filters: {
 		formatMoney: function (value,quentity) {
