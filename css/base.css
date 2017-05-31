@@ -316,3 +316,6 @@ clearfix{*zoom:1;}
 .bottom{
     padding-top: 25px;
 }
+.checked{
+    color: red;
+}

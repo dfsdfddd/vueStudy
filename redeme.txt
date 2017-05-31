@@ -6,3 +6,18 @@
 4 渲染 productList   (for in)
 5 filter
 6 mounted //干什么用处
+
+
+//indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+this.$set(object , key[string] , val)
+
+
+selectedProduct: function (product) 只传product为 v-for 循环出来的 某单个的对象 操作当前对象里面的数据时 用这个
+
+this.forEach(function(item){                 item是循环对每个对象里面的 添加 checked属性
+    if (typeof item.checked == 'undefined'){
+        _this.$set(item, 'checked',isCheck);
+    }else {
+        item.checked = isCheck;
+    }
+})

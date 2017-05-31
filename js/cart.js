@@ -13,11 +13,14 @@ window.vm = new Vue({
 	},
 	mounted: function () {
 		var _this = this;
-		this.cartView();
+		//this.cartView();
 	},
 	filters: {
 		formatMoney: function (value,quentity) {
-			if(!quentity)quentity=1;
+			console.log(value)
+            console.log(quentity)
+
+            if(!quentity)quentity=1;
 			return "¥ "+(value*quentity).toFixed(2) +"元";
 		}
 	},
@@ -34,6 +37,7 @@ window.vm = new Vue({
 		selectAll: function (isCheck) {
 			this.checkAll=isCheck;
 			this.productList.forEach(function (item) {
+                console.log(item)
 				if(typeof item.checked == "undefined"){
 					Vue.set(item,"checked",isCheck);
 				}else{
