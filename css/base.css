@@ -319,3 +319,65 @@ clearfix{*zoom:1;}
 .checked{
     color: red;
 }
+.showModel{
+    width:535px;
+    height:264px;
+    position: fixed;
+    left:50%;
+    top:50%;
+    margin-left:-267px;
+    margin-top:-132px;
+    background-color: #605F5F;
+    display: none;
+}
+.model-body{
+    position: relative;
+    text-align: center;
+    padding-top: 80px;
+}
+.model-body p{
+    color: #fff;
+}
+.model-bottom button{
+    width: 42%;
+    min-width: 80px;
+    margin: 0 2.5%;
+    height:50px;
+    line-height:50px;
+    background-color: #fff;
+}
+.model-bottom{
+    padding-top: 30px;
+}
+.model-bottom button.btn-yes:hover{
+    background-color: cadetblue;
+    color: #fff;
+}
+.model-bottom button.btn-no{
+    color:#fff;
+    background-color: cadetblue;
+}
+.model-bottom button.btn-no:hover{
+    background-color: #fff;
+    color: #333;
+}
+.closebtn{
+    color: #fff;;
+    position: absolute;
+    width:30px;
+    height:30px;
+    text-align: center;
+    line-height: 30px;
+    font-size:24px;
+    right:10px;
+    top:10px;
+    z-index: 99;
+
+}
+a.closebtn:hover {
+    cursor: pointer;
+}
+.thisShow{
+    display: block;
+}
+

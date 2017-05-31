@@ -43,29 +43,40 @@
                     </div>
                 </div>
                 <div class="row4">
-                    <div class="totalMoney">{{product.productPrice || formatMoney(product.productQuentity)}}</div>
+                    <div class="totalMoney">{{product.productPrice | formatMoney(product.productQuentity)}}</div>
                 </div>
                 <div class="row5">
-                    <div class="ediet">删除</div>
+                    <div class="ediet" @click="delConfirm(product)">删除</div>
                 </div>
             </li>
         </ul>
         <ul class="bottom clearfix">
             <li class="bottom-row-left">
-
-                <a class="check" :class="{'checked':checkAll}" @click="selectAll(true)">check</a>
-                <span class="choice-all">全选</span>
+                <div  style="display:inline-block" @click="selectAll(true)">
+                    <a class="check" :class="{'checked':checkAll}" >check</a>
+                    <span class="choice-all">全选</span>
+                </div>
                 <span class="cansl-choice" @click="selectAll(false)">取消全选</span>
             </li>
             <li class="bottom-row-right">
                 <dl>
-                    <dd>item total:  <span class="item-total">234</span></dd>
+                    <dd>item total:  <span class="item-total" v-text="totalMoney"></span></dd>
                     <dd>
                         <a class="jiezhang">结账</a>
                     </dd>
                 </dl>
             </li>
         </ul>
+    </div>
+    <div class="showModel" v-bind:class="{'thisShow':showModal}">
+        <a class="closebtn " @click="showModel = false">X</a>
+        <div class="model-body">
+            <p>你确认删除此订单信息吗?</p>
+            <div class="model-bottom clearfix">
+                <button class="btn-yes" @click="delCurrentProduct">yes</button>
+                <button class="btn-no" @click="showModel = false">no</button>
+            </div>
+        </div>
     </div>
 </div>
 <script src="node_modules/vue/dist/vue.min.js"></script>

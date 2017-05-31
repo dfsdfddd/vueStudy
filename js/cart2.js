@@ -6,6 +6,9 @@ window.vm = new Vue({
 	data:{
 		productList: [],
 		checkAll: false,
+		totalMoney:0,
+        showModal: false,
+		currentProduct:'',
 	},
 	mounted: function(){
 		var _this = this;
@@ -15,8 +18,8 @@ window.vm = new Vue({
 	filters: {
 		//过滤器
 		formatMoney: function(value,quentity){
-			if (quentity)
-			retun "￥" +(value*quentity).toFixed(2) + "元"
+			if (!quentity)quentity =1;
+			return "￥" +(value*quentity).toFixed(2) + "元"
 		}
 	},
 	methods: {
@@ -39,6 +42,7 @@ window.vm = new Vue({
 					item.checked = isCheck;
 				}
             })
+            this.calcTotalMoney();
         },
         selectedProduct: function (product) {
 			//选择产品
@@ -49,6 +53,7 @@ window.vm = new Vue({
 				product.checked = !product.checked;
 			}
 			this.isCheckAll();
+			this.calcTotalMoney();
         },
         isCheckAll: function(){
 			//是否已经被全选
@@ -66,6 +71,13 @@ window.vm = new Vue({
         },
         calcTotalMoney: function(){
 			//计算所有的时间
+			let totalMoney = 0;
+			this.productList.forEach(function(item){
+				if(item.checked){
+					totalMoney= totalMoney + (item.productPrice*item.productQuentity)
+				}
+			})
+			this.totalMoney = totalMoney;
         },
         changeMoney: function(product,way){
 			//改变时间
@@ -77,12 +89,17 @@ window.vm = new Vue({
 					product.productQuentity = 1;
 				}
 			}
+            this.calcTotalMoney();
         },
-        delConFirm: function(){
+   		delConfirm: function(product){
 			//删除条目
+			this.showModal=true;
+			this.currentProduct=product;
         },
         delCurrentProduct: function () {
-
+			this.showModal = false;
+			var index = this.productList.indexOf(this.currentProduct);
+			this.productList.splice(index,1);
         }
 	}
 })

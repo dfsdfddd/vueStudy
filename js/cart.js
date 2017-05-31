@@ -90,6 +90,7 @@ window.vm = new Vue({
 				}
 			}
 			this.calcTotalMoney();
+
 		},
 		delConfirm: function (product) {
 			this.showModal = true;
