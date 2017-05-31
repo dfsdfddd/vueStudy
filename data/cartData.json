@@ -29,6 +29,45 @@
             "partsName":"吸管"
           }
         ]
+      },
+      {
+        "productId":"600100002123",
+        "productName":"耳机",
+        "productPrice":65,
+        "productQuentity":5,
+        "productImage":"img/ear.jpeg",
+        "parts":[
+          {
+            "partsId":"20001",
+            "partsName":"手机"
+          }
+        ]
+      },
+      {
+        "productId":"600100002124",
+        "productName":"打火机",
+        "productPrice":20,
+        "productQuentity":10,
+        "productImage":"img/part-1.jpg",
+        "parts":[
+          {
+            "partsId":"20001",
+            "partsName":"汽油"
+          }
+        ]
+      },
+      {
+        "productId":"600100002120",
+        "productName":"吸光",
+        "productPrice":1.2,
+        "productQuentity":50,
+        "productImage":"img/part-2.jpg",
+        "parts":[
+          {
+            "partsId":"20001",
+            "partsName":"加多宝"
+          }
+        ]
       }
     ]
   },

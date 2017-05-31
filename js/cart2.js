@@ -100,6 +100,7 @@ window.vm = new Vue({
 			this.showModal = false;
 			var index = this.productList.indexOf(this.currentProduct);
 			this.productList.splice(index,1);
+			console.log(this.productList)
         }
 	}
 })
