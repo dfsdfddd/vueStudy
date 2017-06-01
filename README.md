@@ -1,2 +1,2 @@
 # vueStudy
-新手学习
+newvuestudy
