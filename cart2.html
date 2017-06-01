@@ -68,16 +68,17 @@
             </li>
         </ul>
     </div>
-    <div class="showModel" v-bind:class="{'thisShow':showModal}">
-        <a class="closebtn " @click="showModel = false">X</a>
+    <div class="showModel" v-bind:class="{'thisShow':showModal}" @click.stop="">
+        <a class="closebtn " @click="showModal=false">X</a>
         <div class="model-body">
             <p>你确认删除此订单信息吗?</p>
             <div class="model-bottom clearfix">
                 <button class="btn-yes" @click="delCurrentProduct">yes</button>
-                <button class="btn-no" @click="showModel = false">no</button>
+                <button class="btn-no" @click="showModal=false;">no</button>
             </div>
         </div>
     </div>
+    <div id="showOverLay" class="md-overlay" v-show="showModal"></div>
 </div>
 <script src="node_modules/vue/dist/vue.min.js"></script>
 <script src="node_modules/vue-resource/dist/vue-resource.min.js"></script>

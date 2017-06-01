@@ -279,9 +279,15 @@ clearfix{*zoom:1;}
 .row1 .check{
     padding-top: 28px;
 }
+.row1 .check:hover{
+    cursor: pointer;
+}
 .row2 .thisMoney,.row3 .cartCount,.row4 .totalMoney,.row5 .ediet{
     text-align: center;
     padding-top:28px;
+}
+.row5 .ediet{
+    cursor: pointer;
 }
 .row3 .cartCount{
     width: 57px;
@@ -329,6 +335,11 @@ clearfix{*zoom:1;}
     margin-top:-132px;
     background-color: #605F5F;
     display: none;
+    z-index: 98;
+    box-shadow: chocolate;
+    -webkit-box-shadow: 0 0 5px 2px #ff6600;
+    -moz-box-shadow: 0 0 5px 2px #ff6600;
+    box-shadow: 0 0 5px 2px #ff6600;
 }
 .model-body{
     position: relative;
@@ -380,4 +391,12 @@ a.closebtn:hover {
 .thisShow{
     display: block;
 }
-
+.md-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 97;
+}
