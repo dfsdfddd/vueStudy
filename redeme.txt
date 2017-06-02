@@ -21,3 +21,109 @@ this.forEach(function(item){                 item是循环对每个对象里面�
         item.checked = isCheck;
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cartdemo</title>
+    <link href="css/base.css" rel="stylesheet" >
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <ul class="head clearfix">
+            <li class="class-head-li1">商品信息</li>
+            <li class="class-head-li2">商品金额</li>
+            <li class="class-head-li3">商品数量</li>
+            <li class="class-head-li4">总金额</li>
+            <li class="class-head-li5">编辑</li>
+        </ul>
+        <ul class="info">
+            <li class="info-li1 clearfix">
+                <div class="row1">
+                    <a  class="check">check</a>
+                    <div  class="imgs">
+                        <img>
+                    </div>
+                    <ul class="theli">
+                        <li></li>
+                        <li> </li>
+                        <li> </li>
+                        <li v-for=>赠送:   <span></span></li>
+                    </ul>
+                </div>
+                <div class="row2">
+                    <div class="thisMoney"></div>
+                </div>
+                <div class="row3">
+                    <div class="cartCount clearfix">
+                        <a href="javascript:;" class="reduce">-</a>
+                        <input type="text"  disabled>
+                        <a href="javascript:;" class="plus">+</a>
+                    </div>
+                </div>
+                <div class="row4">
+                    <div class="totalMoney"></div>
+                </div>
+                <div class="row5">
+                    <div class="ediet">删除</div>
+                </div>
+            </li>
+        </ul>
+        <ul class="bottom clearfix">
+            <li class="bottom-row-left">
+                <div  style="display:inline-block" >
+                    <a class="check">check</a>
+                    <span class="choice-all">全选</span>
+                </div>
+                <span class="cansl-choice">取消全选</span>
+            </li>
+            <li class="bottom-row-right">
+                <dl>
+                    <dd>item total:  <span class="item-total"></span></dd>
+                    <dd>
+                        <a class="jiezhang">结账</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="showModel">
+        <a class="closebtn ">X</a>
+        <div class="model-body">
+            <p>你确认删除此订单信息吗?</p>
+            <div class="model-bottom clearfix">
+                <button class="btn-yes">yes</button>
+                <button class="btn-no">no</button>
+            </div>
+        </div>
+    </div>
+    <div id="showOverLay" class="md-overlay"></div>
+</div>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script src="node_modules/vue-resource/dist/vue-resource.min.js"></script>
+<script src="js/cart3.js"></script>
+</body>
+</html>

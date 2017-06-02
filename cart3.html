@@ -19,46 +19,48 @@
             <li class="class-head-li5">编辑</li>
         </ul>
         <ul class="info">
-            <li class="info-li1 clearfix">
+            <li class="info-li1 clearfix" v-for="product in productList">
                 <div class="row1">
-                    <a  class="check">check</a>
-                    <div class="imgs">
-                        <img>
+                    <a  class="check" :class="{'checked':product.checked}" @click="selectedProduct(product)">check</a>
+                    <div  class="imgs">
+                        <img v-bind:src="product.productImage">
                     </div>
                     <ul class="theli">
-                        <li>title</li>
+                        <li v-text="product.productName"></li>
                         <li> </li>
                         <li> </li>
-                        <li>赠送:   <span>打火机</span></li>
+                        <li v-for="item in product.parts">赠送:   <span v-text="item.partsName"></span></li>
                     </ul>
                 </div>
                 <div class="row2">
-                    <div class="thisMoney">12</div>
+                    <div class="thisMoney" v-text="product.productPrice"></div>
                 </div>
                 <div class="row3">
                     <div class="cartCount clearfix">
-                        <a href="javascript:;" class="reduce">-</a>
-                        <input type="text" disabled="disabled" value="23">
-                        <a href="javascript:;" class="plus">+</a>
+                        <a href="javascript:;" class="reduce" @click="changeMoney(product,-1)">-</a>
+                        <input type="text" v-model="product.productQuentity" disabled>
+                        <a href="javascript:;" class="plus" @click="changeMoney(product,1)">+</a>
                     </div>
                 </div>
                 <div class="row4">
-                    <div class="totalMoney">234</div>
+                    <div class="totalMoney">{{ product.productPrice | formatMoney(product.productQuentity)}}</div>
                 </div>
                 <div class="row5">
-                    <div class="ediet">删除</div>
+                    <div class="ediet" @click="delConfirm(product)">删除</div>
                 </div>
             </li>
         </ul>
         <ul class="bottom clearfix">
             <li class="bottom-row-left">
-                <a class="check">check</a>
-                <span class="choice-all">全选</span>
-                <span class="cansl-choice">取消全选</span>
+                <div  style="display:inline-block"  @click="selectAll(true)">
+                    <a class="check" v-bind:class="{'checked':checkAll}">check</a>
+                    <span class="choice-all">全选</span>
+                </div>
+                <span class="cansl-choice"  @click="selectAll(false)">取消全选</span>
             </li>
             <li class="bottom-row-right">
                 <dl>
-                    <dd>item total:  <span class="item-total">234</span></dd>
+                    <dd>item total:  <span class="item-total" v-text="totalMoney"></span></dd>
                     <dd>
                         <a class="jiezhang">结账</a>
                     </dd>
@@ -66,6 +68,20 @@
             </li>
         </ul>
     </div>
+    <div class="showModel" v-bind:class="{'thisShow':showModal}">
+        <a class="closebtn ">X</a>
+        <div class="model-body">
+            <p>你确认删除此订单信息吗?</p>
+            <div class="model-bottom clearfix">
+                <button class="btn-yes" @click="delCurrentProduct">yes</button>
+                <button class="btn-no" @click="showModal=false" @click="showModal=false">no</button>
+            </div>
+        </div>
+    </div>
+    <div id="showOverLay" class="md-overlay" v-show="showModal"></div>
 </div>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script src="node_modules/vue-resource/dist/vue-resource.min.js"></script>
+<script src="js/cart3.js"></script>
 </body>
 </html>

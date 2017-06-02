@@ -37,7 +37,7 @@ window.vm = new Vue({
 			var _this = this;
 			this.productList.forEach(function (item) {
 				if (typeof item.checked == 'undefined'){
-					_this.$set(item, 'checked',isCheck);
+					_this.$set(item, checked,isCheck);
 				}else {
 					item.checked = isCheck;
 				}
