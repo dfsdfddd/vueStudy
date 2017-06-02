@@ -10,27 +10,24 @@ var vm = new Vue({
 	},
 	mounted: function () {
 		this.$nextTick(function () {
-
-
-			this.loadingState = true;
 			this.queryAddress();
 		});
+
 	},
 	computed: {
-		filteAddress:function (){
-			return this.addressList.slice(0,this.limitNum)
-		}
+        filteAddress:function (){
+            return this.addressList.slice(0,this.limitNum);
+        }
 	},
 	methods: {
 		queryAddress: function () {
-			var _this = this;
-			let a= 3;
-			this.$http.get("data/address.json").then(function (response) {
-				var res = response.data;
-				if(res.status=="0"){
-					_this.addressList = res.result;
-				}
-			})
+            var _this = this;
+            this.$http.get('data/address.json').then(function (response) {
+                var res = response.body;
+                if (res && res.status == "0"){
+                    this.addressList = res.result
+                }
+            })
 		},
 		loadMoreData: function() {
 			this.loadMoreFlag = !this.loadMoreFlag;
@@ -42,15 +39,13 @@ var vm = new Vue({
 		},
 		setDefaultAddress: function(addrId) {
 			var _this = this;
-			_this.addressList.forEach(function (item) {
-
-				if(item.addressId==addrId){
-					item.isDefault = true;
-				}else{
-					item.isDefault = false;
+			this.addressList.forEach(function (item) {
+				if (item.addressId == addrId){
+					item.isDefault=true;
+				}else {
+					item.isDefault=false;
 				}
-				console.log(item.addressId+"::"+item.isDefault);
-			});
+            })
 		},
 		delConfirm: function(k) {
 			var _this = this;

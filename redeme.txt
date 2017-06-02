@@ -23,9 +23,16 @@ this.forEach(function(item){                 item是循环对每个对象里面�
 })
 
 
+$nextTick()在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
 
+computed // 计算属性
+ 1有缓存作用
+ methods 每次执行都会重新渲染
+ 而computed只有其依赖的值变了它才变
+ 一般返回get
+ 可以set
 
-
+mounted：el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
 
 
 
