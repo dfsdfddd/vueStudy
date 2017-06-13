@@ -17,8 +17,6 @@ window.vm = new Vue({
 	},
 	filters: {
 		formatMoney: function (value,quentity) {
-			console.log(value)
-            console.log(quentity)
 
             if(!quentity)quentity=1;
 			return "¥ "+(value*quentity).toFixed(2) +"元";
@@ -36,8 +34,9 @@ window.vm = new Vue({
 		},
 		selectAll: function (isCheck) {
 			this.checkAll=isCheck;
-			this.productList.forEach(function (item) {
-                console.log(item)
+            console.log(this.productList.length)
+			this.productList.forEach(function (item,n) {
+
 				if(typeof item.checked == "undefined"){
 					Vue.set(item,"checked",isCheck);
 				}else{
@@ -58,7 +57,8 @@ window.vm = new Vue({
 		},
 		isCheckAll: function () {
 			let flag = true;
-			this.productList.forEach(function (item) {
+			this.productList.forEach(function (item,n) {
+
 				if(!item.checked){
 					flag = false;
 				}
